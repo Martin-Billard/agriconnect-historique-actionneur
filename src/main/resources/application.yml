@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: achistorique
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3309/agriconnect-historiques?serverTimezone=UTC
+    username: root
+    password: root
+
+server:
+  port: 10011
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env,health,
+          info,metrics,
+          loggers,mappings, prometheus
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+# Configuration du log.
+logging:
+  level:
+    org.springframework.web: INFO # Choix du niveau de log affiché
